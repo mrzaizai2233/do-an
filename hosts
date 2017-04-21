@@ -1,0 +1,40 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+
+127.0.0.1 magento.dev
+127.0.0.1 hoaphuong
+127.0.0.1 oc
+127.0.0.1 bc.oc
+127.0.0.1 ac.oc
+127.0.0.1 hydromax-magento
+127.0.0.1 cdns3.dev
+127.0.0.1 theappnow
+13.77.84.138 wordpress.absoft.com.vn
+127.0.0.1 hpeb2c
+13.77.84.138 hoaphuong.absoft.com.vn
+13.77.84.138 hoaphuong1.absoft.com.vn127.0.0.1 yii.dev
+127.0.0.1 yiiad.dev
+127.0.0.1 chat.dev
+127.0.0.1 bbnn.dev
+127.0.0.1 wp.dev
+127.0.0.1 wptest.dev
+127.0.0.1 ajax.dev

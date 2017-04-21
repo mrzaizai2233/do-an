@@ -412,10 +412,14 @@ class SiteController extends Controller
         $gioHangs=Yii::$app->session->get('giohang')?Yii::$app->session->get('giohang'):null;
         $soLuongHangs=Yii::$app->session->get('soluonghang')?Yii::$app->session->get('soluonghang'):null;
         $tongtien=Yii::$app->session->get('tongtien');
+
         if(Yii::$app->request->post()){
             $donHang->load(Yii::$app->request->post());
-            $donHang->save();
-            return $this->goHome();
+            if ($donHang->save()) {
+                Yii::$app->session->setFlash("thongbao", "Thanh toán thành công");
+                $this->redirect('/site/thanhtoan');
+                Yii::$app->end();
+            }
         }
         return $this->render('thanhtoan',[
             'donhang'=>$donHang,

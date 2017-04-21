@@ -23,6 +23,8 @@ class GiaoDien1 extends AssetBundle
         "frontend/giaodien/giaodien1/assets/css/style.css",
         "frontend/giaodien/giaodien1/assets/css/responsive.css",
         "frontend/giaodien/giaodien1/assets/css/option3.css",
+        "frontend/giaodien/giaodien1/assets/css/toastr.min.css",
+
     ];
     public $js = [
         
@@ -42,6 +44,8 @@ class GiaoDien1 extends AssetBundle
         "frontend/giaodien/giaodien1/assets/js/theme-script.js",
         "frontend/giaodien/giaodien1/assets/lib/jquery.elevatezoom.js",
         "frontend/giaodien/giaodien1/assets/lib/fancyBox/jquery.fancybox.js",
+        "frontend/giaodien/giaodien1/assets/lib/toastr.min.js",
+        "frontend/giaodien/giaodien1/assets/lib/ui-toastr-notifications.js",
         "frontend/giaodien/giaodien1/assets/js/hanghoa.js"
 
 

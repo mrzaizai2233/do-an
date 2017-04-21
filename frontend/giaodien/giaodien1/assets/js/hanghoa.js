@@ -34,11 +34,26 @@ $(document).ready(function(){
             beforeSend:function(){
             },
             success:function(data){
+                toastr.success("Thông báo", "thêm hàng thành công");
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
                 $('#cart-block').html('');
                 $('#cart-block').html(data.minicart);
                 $('#myModalLabel').html("thông báo đặt hàng");
                 $('#myModal .modal-body').html(data.alert);
-                $('#myModal').modal("show");
+                //$('#myModal').modal("show");
             }
         })
 

@@ -25,37 +25,39 @@ use yii\widgets\ActiveForm;
             <span class="page-heading-title2">Thanh toán</span>
         </h2>
         <?php
-        if(isset($message)):
+        if (Yii::$app->session->hasFlash('thongbao')):
             ?>
-        <div class="thongbao alert alert-success">
-            Thanh toán thành công
-        </div>
+            <div class="thongbao alert alert-success">
+                Thanh toán thành công
+            </div>
         <?php endif; ?>
-        <?php $form =ActiveForm::begin()?>
+        <?php $form = ActiveForm::begin() ?>
         <!-- ../page heading-->
         <div class="page-content checkout-page">
+            <?php if (count($gioHangs = Yii::$app->session->get('giohang')) > 0) { ?>
             <h3 class="checkout-sep">Thông tin khách hàng</h3>
             <div class="box-border">
                 <ul>
                     <li class="row">
                         <div class="col-sm-6">
-                            <?=$form->field($donhang,'hoten')->textInput()?>
+                            <?= $form->field($donhang, 'hoten')->textInput() ?>
                         </div><!--/ [col] -->
                         <div class="col-sm-6">
-                            <?=$form->field($donhang,'diachi')->textInput()?>
+                            <?= $form->field($donhang, 'diachi')->textInput() ?>
                         </div><!--/ [col] -->
                     </li><!--/ .row -->
                     <li class="row">
                         <div class="col-sm-6">
-                            <?=$form->field($donhang,'email')->textInput(['type'=>'email'])?>
+                            <?= $form->field($donhang, 'email')->textInput(['type' => 'email']) ?>
                         </div><!--/ [col] -->
                         <div class="col-sm-6">
-                            <?=$form->field($donhang,'dienthoai')->textInput()?>
+                            <?= $form->field($donhang, 'dienthoai')->textInput() ?>
                         </div><!--/ [col] -->
                     </li><!--/ .row -->
 
                 </ul>
             </div>
+            <?php } ?>
             <h3 class="checkout-sep">Thông tin hàng</h3>
             <div class="box-border">
                 <?php if (count($gioHangs = Yii::$app->session->get('giohang')) > 0) { ?>
@@ -76,7 +78,7 @@ use yii\widgets\ActiveForm;
                             <tr>
                                 <td class="cart_product">
                                     <a href="<?= Yii::$app->urlManager->createUrl(['site/product', 'code' => $giohang->code]) ?>"><img
-                                            src="<?= Yii::$app->urlManager->createUrl(['/images/'.base::checkImageProduct($giohang)]) ?>"
+                                            src="<?= Yii::$app->urlManager->createUrl(['/images/' . base::checkImageProduct($giohang)]) ?>"
                                             alt="Product"></a>
                                 </td>
                                 <td class="cart_description">
@@ -95,7 +97,8 @@ use yii\widgets\ActiveForm;
                                            name="soluong[<?= $giohang->code ?>]" disabled>
                                 </td>
                                 <td class="price">
-                                    <span><?= number_format($giohang->dongia * $soLuonghangs[$giohang->id], 0, ',', ',') ?> đ</span>
+                                    <span><?= number_format($giohang->dongia * $soLuonghangs[$giohang->id], 0, ',', ',') ?>
+                                        đ</span>
                                 </td>
                                 <td class="action">
                                     <a href="<?= Yii::$app->urlManager->createUrl(['site/xoatronggiohang', 'code' => $giohang->code]) ?>">Delete
@@ -114,11 +117,14 @@ use yii\widgets\ActiveForm;
                 <?php } else {
                     echo "Không có sản phẩm nào trong giỏ hàng";
                 } ?>
-                <?php if(count($tongTien) && count($soLuonghangs) !=0):?>
-                <button class="button pull-right" type="submit">Thanh Toán</button>
-                <?php endif;?>
+                <?php if (count($tongTien) && count($soLuonghangs) != 0): ?>
+                    <button class="button pull-right" type="submit">Thanh Toán</button>
+                <?php endif; ?>
             </div>
         </div>
-        <?php ActiveForm::end()?>
+        <?php ActiveForm::end() ?>
     </div>
 </div>
+<?php $this->registerJsFile(Yii::$app->request->baseUrl . 'frontend/giaodien/giaodien1/assets/js/yii.activeForm.js', ['depends' => ['frontend\assets\Giaodien1'], 'position' => yii\web\View::POS_END]);
+?>
+

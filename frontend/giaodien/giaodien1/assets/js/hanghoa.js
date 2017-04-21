@@ -27,6 +27,8 @@ $(document).ready(function(){
         var soluong= 1;
         var idProduct = $(this).attr('data-id');
         $.ajax({
+
+            
             url:'/site/addcart',
             data:{soluong:soluong,idProduct:idProduct},
             type:'POST',

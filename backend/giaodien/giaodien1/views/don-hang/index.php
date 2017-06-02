@@ -1,5 +1,6 @@
 <?php
 
+use common\models\base;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -83,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'label' => 'Hình Ảnh',
             'value' => function ($data) {
-                return Html::img("/images/" . $data->hanghoa->hinhanhs[0]->file, ['style' => [
+                return Html::img("/images/" . base::checkImageProduct($data->hanghoa->hinhanhs), ['style' => [
                     'width' => '150px',
                     'height' => '150px'
                 ]]);

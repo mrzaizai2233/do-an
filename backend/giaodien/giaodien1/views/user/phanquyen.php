@@ -58,6 +58,6 @@ use yii\bootstrap\Html; ?>
     <i class="fa fa-save"></i>Lưu lại
 </button>
 <?php
-$this->registerJsFile(Yii::$app->urlManager->baseUrl.'/../giaodien/giaodien1/assets/js/jsview/phanquyen.js',['depends'=>['backend\assets\Giaodien2'],'position'=>yii\web\View::POS_END]);
+$this->registerJsFile(Yii::$app->urlManager->baseUrl.'/../giaodien/giaodien1/assets/js/jsview/phanquyen.js',['depends'=>['backend\assets\Giaodien1'],'position'=>yii\web\View::POS_END]);
 
 ?>
